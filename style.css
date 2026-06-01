@@ -74,8 +74,9 @@ body {
 
 .external-scene {
   position: relative;
+  width: 100%;
   max-width: 1000px;
-  height: 560px;
+  aspect-ratio: 1000 / 560;
   margin: 0 auto;
   background: linear-gradient(#dbeafe, #f8fafc);
   border-radius: 24px;
@@ -264,8 +265,9 @@ body {
 
 .internal-scene {
   position: relative;
+  width: 100%;
   max-width: 1000px;
-  height: 620px;
+  aspect-ratio: 1000 / 620;
   margin: 0 auto;
   background: #111827;
   border-radius: 24px;
@@ -975,11 +977,44 @@ body {
     text-align: center;
   }
 
-  .external-scene,
+  .app {
+    padding: 20px 12px;
+  }
+
+  .screen-title {
+    margin-bottom: 18px;
+  }
+
+  .screen-title h2 {
+    font-size: 26px;
+  }
+
+  .screen-title p {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .external-scene {
+    border-width: 1px;
+    border-radius: 14px;
+  }
+
   .internal-scene {
-    transform: scale(0.75);
-    transform-origin: top center;
-    margin-bottom: -120px;
+    border-width: 5px;
+    border-radius: 14px;
+  }
+
+  .device,
+  .pc-part {
+    border-width: 2px;
+    padding: 3px;
+    font-size: clamp(10px, 3vw, 13px);
+  }
+
+  .motherboard-label {
+    left: 8px;
+    bottom: 8px;
+    font-size: clamp(10px, 3vw, 13px);
   }
 
   .detail-layout {
