@@ -1,0 +1,994 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef2f7;
+  color: #1f2937;
+}
+
+.header {
+  background: #111827;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: #cbd5e1;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.nav-button:hover {
+  background: #1d4ed8;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app {
+  min-height: calc(100vh - 95px);
+  padding: 30px;
+}
+
+.screen-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.screen-title h2 {
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+.screen-title p {
+  color: #4b5563;
+}
+
+/* Внешнее устройство ПК */
+
+.external-scene {
+  position: relative;
+  max-width: 1000px;
+  height: 560px;
+  margin: 0 auto;
+  background: linear-gradient(#dbeafe, #f8fafc);
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border: 2px solid #cbd5e1;
+}
+
+.external-scene-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.external-scene.has-photo .device {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.82);
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.external-scene.has-photo .device:hover {
+  background: rgba(37, 99, 235, 0.3);
+}
+
+.external-scene.has-photo .monitor {
+  width: 41.5%;
+  height: 61.6%;
+  left: 36.5%;
+  top: 10.9%;
+  border-radius: 0;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 79.8%, 57.7% 79.8%,
+    57.7% 93.8%, 73.8% 93.8%, 73.8% 100%,
+    24.7% 100%, 24.7% 93.8%, 40.5% 93.8%,
+    40.5% 79.8%, 0 79.8%
+  );
+}
+
+.external-scene.has-photo .keyboard {
+  width: 55.1%;
+  height: 14.8%;
+  left: 25.1%;
+  top: 75.2%;
+  border-radius: 0;
+  clip-path: polygon(4.2% 0, 95.1% 0, 100% 100%, 0 100%);
+}
+
+.external-scene.has-photo .mouse {
+  width: 8.9%;
+  height: 12.5%;
+  left: 83.1%;
+  top: 76.9%;
+  border-radius: 48% 52% 52% 48%;
+}
+
+.external-scene.has-photo .speaker-left {
+  width: 9.8%;
+  height: 36.7%;
+  left: 23.9%;
+  top: 35.2%;
+  border-radius: 12px;
+}
+
+.external-scene.has-photo .speaker-right {
+  width: 10%;
+  height: 36.7%;
+  left: 81.1%;
+  top: 35.2%;
+  border-radius: 12px;
+}
+
+.external-scene.has-photo .system-unit {
+  width: 14.7%;
+  height: 53.6%;
+  left: 5.7%;
+  top: 22.4%;
+  border-radius: 10px;
+}
+
+.external-scene.has-photo .monitor::after,
+.external-scene.has-photo .system-unit::before,
+.external-scene.has-photo .system-unit::after {
+  display: none;
+}
+
+.device {
+  position: absolute;
+  border: 3px solid #1f2937;
+  background: white;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.device:hover {
+  transform: scale(1.04);
+  background: #dbeafe;
+  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.25);
+}
+
+.monitor {
+  width: 300px;
+  height: 180px;
+  left: 350px;
+  top: 80px;
+}
+
+.monitor::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 70px;
+  background: #1f2937;
+  bottom: -75px;
+  left: 110px;
+  border-radius: 0 0 10px 10px;
+}
+
+.keyboard {
+  width: 380px;
+  height: 80px;
+  left: 310px;
+  top: 380px;
+}
+
+.mouse {
+  width: 90px;
+  height: 130px;
+  left: 730px;
+  top: 350px;
+  border-radius: 45px;
+}
+
+.speaker-left {
+  width: 80px;
+  height: 180px;
+  left: 230px;
+  top: 110px;
+}
+
+.speaker-right {
+  width: 80px;
+  height: 180px;
+  left: 690px;
+  top: 110px;
+}
+
+.system-unit {
+  width: 150px;
+  height: 300px;
+  left: 90px;
+  top: 170px;
+  background: #e5e7eb;
+}
+
+.system-unit::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border: 3px solid #111827;
+  border-radius: 50%;
+  top: 30px;
+  left: 45px;
+}
+
+.system-unit::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 12px;
+  background: #111827;
+  border-radius: 8px;
+  bottom: 35px;
+  left: 28px;
+}
+
+/* Внутренности системного блока */
+
+.internal-scene {
+  position: relative;
+  max-width: 1000px;
+  height: 620px;
+  margin: 0 auto;
+  background: #111827;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  border: 10px solid #374151;
+  overflow: hidden;
+}
+
+.internal-scene-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.internal-scene.has-photo .motherboard {
+  background: rgba(6, 95, 70, 0.12);
+}
+
+.internal-scene.has-photo .pc-part {
+  background: rgba(15, 23, 42, 0.2);
+  border-color: rgba(255, 255, 255, 0.78);
+}
+
+.internal-scene.has-photo .pc-part:hover {
+  background: rgba(37, 99, 235, 0.3);
+}
+
+.internal-scene.has-photo .motherboard {
+  width: 50%;
+  height: 73%;
+  left: 9%;
+  top: 13%;
+}
+
+.internal-scene.has-photo .motherboard:hover {
+  background: rgba(4, 120, 87, 0.28);
+}
+
+.internal-scene.has-photo .cpu {
+  width: 15%;
+  height: 24%;
+  left: 30%;
+  top: 24%;
+  border-radius: 50%;
+}
+
+.internal-scene.has-photo .ram {
+  width: 6%;
+  height: 36%;
+  left: 47%;
+  top: 20%;
+}
+
+.internal-scene.has-photo .gpu {
+  width: 48%;
+  height: 18%;
+  left: 12%;
+  top: 58%;
+}
+
+.internal-scene.has-photo .ssd {
+  width: 12%;
+  height: 21%;
+  left: 12%;
+  top: 13%;
+}
+
+.internal-scene.has-photo .power-supply {
+  width: 23%;
+  height: 23%;
+  right: 11%;
+  bottom: 8%;
+  border-radius: 6px;
+}
+
+.internal-scene.has-photo .cooling {
+  width: 15%;
+  height: 24%;
+  right: 14%;
+  top: 14%;
+  border-radius: 50%;
+}
+
+.motherboard {
+  position: absolute;
+  width: 640px;
+  height: 500px;
+  background: #065f46;
+  border: 4px solid #064e3b;
+  border-radius: 20px;
+  left: 80px;
+  top: 60px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.motherboard:hover {
+  background: #047857;
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.28);
+}
+
+.motherboard-label {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  color: white;
+  font-weight: bold;
+}
+
+.pc-part {
+  position: absolute;
+  border: 3px solid white;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.pc-part:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25);
+}
+
+.cpu {
+  width: 130px;
+  height: 130px;
+  left: 330px;
+  top: 200px;
+  background: #7c2d12;
+}
+
+.ram {
+  width: 70px;
+  height: 270px;
+  left: 510px;
+  top: 140px;
+  background: #15803d;
+}
+
+.gpu {
+  width: 370px;
+  height: 100px;
+  left: 220px;
+  top: 430px;
+  background: #7e22ce;
+}
+
+.ssd {
+  width: 160px;
+  height: 80px;
+  left: 120px;
+  top: 110px;
+  background: #334155;
+}
+
+.power-supply {
+  width: 180px;
+  height: 150px;
+  right: 70px;
+  bottom: 60px;
+  background: #1f2937;
+}
+
+.cooling {
+  width: 150px;
+  height: 150px;
+  right: 90px;
+  top: 80px;
+  background: #0e7490;
+  border-radius: 50%;
+}
+
+/* Детальный экран компонента */
+
+.detail-screen {
+  min-height: 620px;
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.component-model {
+  position: relative;
+  min-width: 0;
+  height: 420px;
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.component-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.component-photo-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.ram-model {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: 140px;
+  background: #166534;
+  border-radius: 12px;
+  left: 24px;
+  top: 140px;
+  border: 4px solid #14532d;
+}
+
+.ram-chip {
+  position: absolute;
+  width: 11%;
+  height: 80px;
+  background: #111827;
+  top: 28px;
+  border-radius: 6px;
+}
+
+.chip-1 { left: 9%; }
+.chip-2 { left: 25%; }
+.chip-3 { left: 41%; }
+.chip-4 { left: 57%; }
+.chip-5 { left: 73%; }
+
+.ram-contacts {
+  position: absolute;
+  width: 80%;
+  height: 20px;
+  background: #facc15;
+  bottom: -4px;
+  left: 9%;
+  border-radius: 4px;
+}
+
+.cpu-model {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: #9ca3af;
+  border: 8px solid #4b5563;
+  border-radius: 20px;
+  left: 50%;
+  top: 80px;
+  transform: translateX(-50%);
+}
+
+.cpu-core {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: #1f2937;
+  left: 55px;
+  top: 55px;
+  border-radius: 12px;
+}
+
+.gpu-model {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: 190px;
+  background: #581c87;
+  border: 5px solid #3b0764;
+  border-radius: 18px;
+  left: 24px;
+  top: 120px;
+}
+
+.gpu-fan {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #111827;
+  border: 8px solid #6b21a8;
+  border-radius: 50%;
+  top: 45px;
+}
+
+.fan-1 { left: 18%; }
+.fan-2 { left: 51%; }
+
+.part-hotspot {
+  position: absolute;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.part-hotspot:hover {
+  background: #1d4ed8;
+  transform: scale(1.08);
+}
+.connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.connector-line {
+  stroke: #2563eb;
+  stroke-width: 0.8;
+  stroke-linecap: round;
+}
+
+.connector-dot {
+  fill: #2563eb;
+  stroke: white;
+  stroke-width: 0.8;
+}
+
+.part-hotspot {
+  z-index: 4;
+}
+
+.part-hotspot.active {
+  background: #f97316;
+  box-shadow: 0 0 0 5px rgba(249, 115, 22, 0.25);
+}
+
+.detail-info {
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #cbd5e1;
+}
+
+.detail-info h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.detail-info p {
+  line-height: 1.6;
+}
+
+/* Информационная карточка */
+
+.info-panel {
+  position: fixed;
+  right: 30px;
+  top: 120px;
+  width: 380px;
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  border: 2px solid #dbeafe;
+}
+
+.info-panel h2 {
+  margin-top: 0;
+}
+
+.info-panel p {
+  line-height: 1.5;
+}
+
+.close-button {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+.ssd-model {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: 180px;
+  background: #1e293b;
+  border: 5px solid #0f172a;
+  border-radius: 18px;
+  left: 24px;
+  top: 120px;
+}
+
+.ssd-memory-chip {
+  position: absolute;
+  width: 16%;
+  height: 70px;
+  background: #111827;
+  border-radius: 8px;
+  top: 50px;
+}
+
+.ssd-chip-1 {
+  left: 20%;
+}
+
+.ssd-chip-2 {
+  left: 42%;
+}
+
+.ssd-chip-3 {
+  left: 64%;
+}
+
+.ssd-controller {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #475569;
+  border: 3px solid #94a3b8;
+  border-radius: 10px;
+  left: 25px;
+  top: 48px;
+}
+
+.ssd-contacts {
+  position: absolute;
+  width: 90px;
+  height: 35px;
+  background: #facc15;
+  right: -5px;
+  top: 72px;
+  border-radius: 6px 0 0 6px;
+}
+
+.power-model {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: 230px;
+  left: 24px;
+  top: 95px;
+  background: #374151;
+  border: 6px solid #1f2937;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.power-fan {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  left: 8%;
+  top: 42px;
+  background: #111827;
+  border: 12px double #9ca3af;
+  border-radius: 50%;
+}
+
+.power-transformer {
+  position: absolute;
+  width: 125px;
+  height: 100px;
+  left: 43%;
+  top: 65px;
+  background: #b45309;
+  border: 8px solid #78350f;
+  border-radius: 12px;
+}
+
+.power-capacitor {
+  position: absolute;
+  width: 44px;
+  height: 78px;
+  top: 78px;
+  background: #1d4ed8;
+  border: 4px solid #1e3a8a;
+  border-radius: 12px 12px 6px 6px;
+}
+
+.capacitor-1 { left: 66%; }
+.capacitor-2 { left: 74%; }
+.capacitor-3 { left: 82%; }
+
+.power-cables {
+  position: absolute;
+  width: 52px;
+  height: 100%;
+  right: -4px;
+  top: 0;
+}
+
+.power-cable {
+  position: absolute;
+  width: 12px;
+  height: 120px;
+  top: 55px;
+  border-radius: 999px;
+}
+
+.cable-1 {
+  left: 0;
+  background: #dc2626;
+}
+
+.cable-2 {
+  left: 16px;
+  background: #facc15;
+}
+
+.cable-3 {
+  left: 32px;
+  background: #111827;
+}
+
+.cooling-model {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: 250px;
+  left: 24px;
+  top: 85px;
+}
+
+.cooling-radiator {
+  position: absolute;
+  width: 310px;
+  height: 180px;
+  right: 7%;
+  top: 25px;
+  background: #64748b;
+  border: 6px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cooling-fin {
+  position: absolute;
+  width: 12px;
+  height: 100%;
+  top: 0;
+  background: #cbd5e1;
+  border-left: 2px solid #475569;
+  border-right: 2px solid #475569;
+}
+
+.fin-1 { left: 8%; }
+.fin-2 { left: 20%; }
+.fin-3 { left: 32%; }
+.fin-4 { left: 44%; }
+.fin-5 { left: 56%; }
+.fin-6 { left: 68%; }
+.fin-7 { left: 80%; }
+.fin-8 { left: 92%; }
+
+.cooling-fan {
+  position: absolute;
+  width: 165px;
+  height: 165px;
+  left: 7%;
+  top: 33px;
+  background: #0e7490;
+  border: 18px double #164e63;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.cooling-fan-center {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 50%;
+  top: 50%;
+  background: #083344;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cooling-pipe {
+  position: absolute;
+  width: 230px;
+  height: 82px;
+  left: 38%;
+  border: 9px solid #d97706;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 50px 0 0;
+}
+
+.pipe-1 { top: 88px; }
+.pipe-2 { top: 105px; }
+.pipe-3 { top: 122px; }
+
+.cooling-base {
+  position: absolute;
+  width: 120px;
+  height: 54px;
+  left: 47%;
+  bottom: 2px;
+  background: #94a3b8;
+  border: 6px solid #475569;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.motherboard-model {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: 330px;
+  left: 24px;
+  top: 45px;
+  background: #065f46;
+  border: 6px solid #064e3b;
+  border-radius: 18px;
+}
+
+.mb-socket {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 23%;
+  top: 72px;
+  background: #9ca3af;
+  border: 8px solid #4b5563;
+  border-radius: 14px;
+}
+
+.mb-ram-slot {
+  position: absolute;
+  width: 16px;
+  height: 180px;
+  top: 36px;
+  background: #1d4ed8;
+  border: 3px solid #1e3a8a;
+  border-radius: 6px;
+}
+
+.slot-1 { left: 58%; }
+.slot-2 { left: 62%; }
+.slot-3 { left: 66%; }
+.slot-4 { left: 70%; }
+
+.mb-pcie {
+  position: absolute;
+  width: 320px;
+  height: 28px;
+  left: 20%;
+  bottom: 42px;
+  background: #e5e7eb;
+  border: 4px solid #6b7280;
+  border-radius: 6px;
+}
+
+.mb-m2 {
+  position: absolute;
+  width: 170px;
+  height: 20px;
+  left: 48%;
+  top: 196px;
+  background: #facc15;
+  border: 3px solid #a16207;
+  border-radius: 6px;
+}
+
+.mb-power-connectors {
+  position: absolute;
+  width: 44px;
+  height: 130px;
+  right: 5%;
+  top: 72px;
+  background: #111827;
+  border: 4px solid #4b5563;
+  border-radius: 7px;
+}
+
+.mb-chipset {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  right: 17%;
+  bottom: 30px;
+  background: #334155;
+  border: 6px solid #1e293b;
+  border-radius: 12px;
+}
+
+/* Адаптация */
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .external-scene,
+  .internal-scene {
+    transform: scale(0.75);
+    transform-origin: top center;
+    margin-bottom: -120px;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .info-panel {
+    width: calc(100% - 40px);
+    right: 20px;
+    left: 20px;
+  }
+}
